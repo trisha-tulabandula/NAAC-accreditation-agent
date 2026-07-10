@@ -1,0 +1,16 @@
+{
+  "name": "naac-accreditation-agent",
+  "description": "An AI-powered Multi-Agent RAG compliance assistant for NAAC workflows using IBM Granite and LangFlow.",
+  "repository": "https://github.com/trisha-tulabandula/NAAC-accreditation-agent",
+  "keywords": ["ibm-cloud", "watsonx", "granite", "langflow", "naac", "rag"],
+  "env": {
+    "WATSONX_APIKEY": {
+      "description": "Your IBM Cloud IAM API Key linked to watsonx.ai",
+      "required": true
+    },
+    "WATSONX_PROJECT_ID": {
+      "description": "Your watsonx.ai project ID context reference",
+      "required": true
+    }
+  }
+}
