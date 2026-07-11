@@ -1,0 +1,34 @@
+{
+  "description": "NAAC Accreditation Compliance Multi-Agent Assistant Workspace",
+  "name": "NAAC-Accreditation-Workflow",
+  "nodes": [
+    {
+      "id": "chat_input_node",
+      "type": "ChatInput",
+      "data": { "label": "Faculty Query Input" }
+    },
+    {
+      "id": "watsonx_llm_node",
+      "type": "WatsonxModel",
+      "data": {
+        "model_id": "ibm/granite-3-2-8b-instruct",
+        "project_id": "b63a94a2-ca31-4db3-9828-5606bc66a4bc"
+      }
+    },
+    {
+      "id": "file_loader_node",
+      "type": "FileLoader",
+      "data": { "label": "NAAC Guidelines Document Vector Context" }
+    },
+    {
+      "id": "chat_output_node",
+      "type": "ChatOutput",
+      "data": { "label": "Generated SSR Draft Output" }
+    }
+  ],
+  "edges": [
+    {"source": "chat_input_node", "target": "watsonx_llm_node"},
+    {"source": "file_loader_node", "target": "watsonx_llm_node"},
+    {"source": "watsonx_llm_node", "target": "chat_output_node"}
+  ]
+}
